@@ -32,3 +32,10 @@ It lets users shorten long URLs, track clicks, and manage (view/delete) their li
 5. Make sure MongoDB is running locally, or use a cloud MongoDB Atlas connection.
 6. npm start
 
+---
+
+## 📸 Screenshot
+
+![URL Shortener Screenshot](public/images/main_page.png)
+![URL Shortener Screenshot](public/images/manage_page.png)
+![URL Shortener Screenshot](public/images/result_page.png)
