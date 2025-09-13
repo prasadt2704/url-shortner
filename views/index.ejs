@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>URL Shortener</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="max-w-4xl w-full p-8 bg-white shadow-lg rounded-lg">
+    <h1 class="text-4xl font-bold text-center mb-6">URL Shortener 🔗</h1>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      This project is a simple URL shortener built with <strong>Node.js, Express.js, MongoDB, and EJS</strong>,
+      styled using <strong>TailwindCSS</strong>. It lets users enter a long URL, generates a unique short link,
+      and redirects anyone who visits that link back to the original URL.
+    </p>
+    <p class="text-lg text-gray-700 leading-relaxed mt-4">
+      The goal is to demonstrate how server-side rendering, lightweight in-memory storage, and modern
+      UI styling can be combined to build a functional clone of popular services like Bitly.
+      The layout is fully responsive and adapts seamlessly across desktops, tablets, and mobile devices.
+    </p>
+    <form action="/shorten" method="POST" class="flex flex-col gap-4">
+      <input type="url" name="url" placeholder="Enter long URL"
+        class="border rounded-lg p-2 w-full focus:ring-2 focus:ring-blue-500" required>
+      <button type="submit"
+        class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+        Shorten URL
+      </button>
+
+      <a href="/manage"
+      class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+      <span class="flex justify-center">Manage Existing Short URLs</span>
+    </a>
+
+    </form>
+
+  </div>
+</body>
+
+</html>

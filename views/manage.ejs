@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Shortened URLs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center p-8">
+  <h1 class="text-3xl font-bold mb-6">Manage Shortened URLs</h1>
+
+  <div class="w-full max-w-5xl">
+    <table class="w-full border border-gray-300 rounded-lg overflow-hidden shadow">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="p-3 text-left">Short URL</th>
+          <th class="p-3 text-left">Original URL</th>
+          <th class="p-3 text-left">Created At</th>
+          <th class="p-3 text-left">Clicks</th>
+          <th class="p-3 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% urls.forEach(url => { %>
+          <tr class="border-b hover:bg-gray-100">
+            <td class="p-3 text-blue-600 underline">
+              <a href="/<%= url.shortCode %>" target="_blank">
+                <%= url.shortCode %>
+              </a>
+            </td>
+            <td class="p-3 truncate max-w-xs">
+              <a href="<%= url.originalUrl %>" target="_blank" class="text-gray-700">
+                <%= url.longUrl %>
+              </a>
+            </td>
+            <td class="p-3 text-gray-600"><%= url.createdAt.toDateString() %></td>
+            <td class="p-3 text-gray-600"><%= url.clicks %></td>
+            <td class="p-3 text-center">
+              <form action="/delete/<%= url._id %>" method="POST">
+                <button type="submit" class="text-gray-600 hover:text-gray-800">
+                  <i class="fas fa-trash w-6 h-6"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6">
+    <a href="/" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Back to Home</a>
+  </div>
+</body>
+</html>
